@@ -1,29 +1,18 @@
 Technologies:
- - c#
- - js\ts
- - asp.net core WepApi
- - mssql
- - EF core
- - angular+-\react-
- - one of the OCR sources:
-	* https://ironsoftware.com/csharp/ocr/languages/#trial-license
-	* https://asprise.com/ocr/api/docs/html/receipt-ocr.html
-	* https://azure.microsoft.com/en-us/products/ai-services/ai-vision !!
+ - c#, js
+ - .NET;
+ - ASP.NET Core WepApi;
+ - React Native;
+ - MSSQL;
+ - EF Core;
+ - OCR Azure AI Vision ( https://azure.microsoft.com/en-us/products/ai-services/ai-vision )
 
-User, may register + auth ??
-  - authorized can:	
-	  There are 2 options of the bill calculation:
-	  OPTION 1 - PERSONAL:
-	* create bills based on photos (take/download) as user frendly table
-	* Tap or swipe position to right side -> this position will be added to pool of items from which
-	  to calculate sum to pay. In case of multiple items of some positions, while swippping/taping
-	  only 1 item is calculated
-		
-	OPTION 2 - For group of people
+ ++ User authorization, authentication	
+ ++ Base functionallity
 	* button (add bill)
 		-> area with input count of people for whom to divide bill
 		-> create peoples name
-		-> confirm
+		-> confirmation;
 	* After adding & naming people, each position in bill list will have icon that represent a person.
 	  After tap on this icon it means, that a person has ordered this position 
 	* When tap on possition -> position settings window opens:
@@ -34,6 +23,23 @@ User, may register + auth ??
 	* Add tips option in 2 possible forms:
 		form_1: based on result sum. % from sum is divided for all people equally.
 		form_2: each person notify of how much he/she will leave (tip amout will be added to person sum)
-	* Add discount
- 	* drag ordered positions
+	* Add discount;
+ 	* drag ordered positions;
+	* Show result as convinient table with expanded rows
+	  (Person name, order name, order qty, order price, tips amount, total price )
+ ++ Generate QR code in order to share sum to pay for each person
+	* QR data:
+		- Person name,
+		- order position name,
+		- order position  qty,
+		- order position  price,
+		- tips amount,
+		- total price,
+		- notification about possibillity to return persons sum (his\her part of the general bill sum)
+		  to those who generated QR in case of his\her no cash payment;
+		  This notification also contains link to web banking in oder to return funds;
+		  credential to pay (card number);
+	* scaned QR redirects person to web page with order data & payment
+
+
 	* view history of bills (date, place, sum)
