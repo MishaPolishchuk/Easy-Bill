@@ -1,8 +1,9 @@
 Technologies:
- - c#, js
+ - c#, js, ts
  - .NET;
  - ASP.NET Core WepApi;
- - React Native;
+ - Asp.Net Core Identity, Bearer tokens, JWT
+ - React Native/Ionic+Capacitor;
  - MSSQL;
  - EF Core;
  - OCR Azure AI Vision ( https://azure.microsoft.com/en-us/products/ai-services/ai-vision )
@@ -11,10 +12,10 @@ Technologies:
  ++ Base functionallity
 	* button (add bill)
 		-> area with input count of people for whom to divide bill
-		-> create peoples name
+		-> create people names
 		-> confirmation;
-	* After adding & naming people, each position in bill list will have icon that represent a person.
-	  After tap on this icon it means, that a person has ordered this position 
+	* After adding & naming people, each position in bill list will have icon that represent a person;
+	  After tap on this icon it means, that a person has ordered this (one) position;
 	* When tap on possition -> position settings window opens:
 		- possition name|oredred qty|price per one item|price per oredred possition
 		- possibillity to add/remove person who ordered item
@@ -37,9 +38,10 @@ Technologies:
 		- total price,
 		- notification about possibillity to return persons sum (his\her part of the general bill sum)
 		  to those who generated QR in case of his\her no cash payment;
-		  This notification also contains link to web banking in oder to return funds;
-		  credential to pay (card number);
+		- credential to pay (card number);
+		  This notification also contains link to web banking in oder to return funds (to Privat24/Mono/Oshchad) (modal?);		  
 	* scaned QR redirects person to web page with order data & payment
-
-
-	* view history of bills (date, place, sum)
+	* view history of bills (date, place, sum);
+ ++ Security:
+	* Protect sensetive data (card number), redirection links to web banking (avoid fishing)
+	
