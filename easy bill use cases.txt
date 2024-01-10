@@ -8,6 +8,12 @@ Technologies:
  - EF Core;
  - OCR Azure AI Vision ( https://azure.microsoft.com/en-us/products/ai-services/ai-vision )
 
+Architecture:
+ - Clean (Onion) Arch.;
+ - Repo pattern;
+ - CQRS;
+
+Use cases:
  ++ User authorization, authentication	
  ++ Base functionallity
 	* button (add bill)
