@@ -3,7 +3,8 @@ Technologies:
  - .NET;
  - ASP.NET Core WepApi;
  - Asp.Net Core Identity, Bearer tokens, JWT
- - React Native/Ionic+Capacitor;
+ - Ionic+Capacitor;
+ - Angular;
  - MSSQL;
  - EF Core;
  - OCR Azure AI Vision ( https://azure.microsoft.com/en-us/products/ai-services/ai-vision )
@@ -13,41 +14,65 @@ Architecture:
  - Repo pattern;
  - CQRS;
 
-Use cases:
- ++ User authorization, authentication	
- ++ Base functionallity
-	* button (add bill)
-		-> area with input count of people for whom to divide bill
-		-> create people names
-		-> confirmation;
-	* After adding & naming people, each position in bill list will have icon that represent a person;
-	  After tap on this icon it means, that a person has ordered this (one) position;
-	* When tap on possition -> position settings window opens:
-		- possition name|oredred qty|price per one item|price per oredred possition
-		- possibillity to add/remove person who ordered item
-		- possibilitty to input count of the items per one person
-		- possibilitty to drag person to person (devide 1 item for N people)
-	* Add tips option in 2 possible forms:
-		form_1: based on result sum. % from sum is divided for all people equally.
-		form_2: each person notify of how much he/she will leave (tip amout will be added to person sum)
-	* Add discount;
- 	* drag ordered positions;
-	* Show result as convinient table with expanded rows
-	  (Person name, order name, order qty, order price, tips amount, total price )
- ++ Generate QR code in order to share sum to pay for each person
+	    === Mobile app (functionality) ===
+Use cases: 
+ ++ User registration, authorization, authentication; (token, cash, ...)
+ ++ Base functionality
+	* Add bill ( button ):
+	  * convert cropped taken/downloaded photo to user-friendly tabled data:
+	    - position name;
+	    - ordered position count:
+	    - position price;
+	* Add people ( button ):
+	    - area with input count of people for whom to divide the bill
+	    - Create people's names
+	    - confirmation;
+		After adding & naming people, each position in the bill list will have an icon that represents a person;
+	  	After tapping on this icon it means, that a person has ordered this (one) position;
+	* Position settings:
+	* When tap on position -> position settings window opens:
+	    - position name | ordered qty | price per one item | price per order position;
+	    - the possibility of adding/removing the person who ordered the item;
+	    - possibility to input the count of the items per one person;
+	    - possibility to drag person to person (divide 1 item for N people);
+	* Add discount ( button );
+	    - should be applied to all member's payments equally;
+	* Add tips ( button ) as 2 possible forms:
+	    - form_1: based on result sum. % from the sum is divided among all people equally.
+	    - form_2: each person is notified of how much he/she will leave (tip amount will be added to person sum); 	
+	* Show the result as a convenient table with expanded rows:
+	  	(Person name, order name, order qty, order price, tips amount, total price );
+	* Generate QR code containing data about common bills, each person`s payment, tips, discount;
+	* Share order data & payment via other messengers;
+ ++ View history of bills (date, place, sum);
+
+	    === Web page ===
+ ++ QR
+    	* Scanned QR redirects the person to the web page with order data & payment; 	
 	* QR data:
-		- Person name,
-		- order position name,
-		- order position  qty,
-		- order position  price,
-		- tips amount,
-		- total price,
-		- notification about possibillity to return persons sum (his\her part of the general bill sum)
-		  to those who generated QR in case of his\her no cash payment;
-		- credential to pay (card number);
-		  This notification also contains link to web banking in oder to return funds (to Privat24/Mono/Oshchad) (modal?);		  
-	* scaned QR redirects person to web page with order data & payment
-	* view history of bills (date, place, sum);
- ++ Security:
-	* Protect sensetive data (card number), redirection links to web banking (avoid fishing)
+	   - Person name,
+	   - order position name,
+	   - order position  qty,
+	   - order position  price,
+	   - tips amount,
+	   - total price,
+	   - notification about the possibility of returning the person's sum (his\her part of the general bill sum)
+	     to those who generated QR in case of his\her no cash payment;
+	   - credential to pay (card number);
+	     This notification also contains a button to return funds ( redirects to a provider via which payment is made (Privat24/Mono/Oshchad) );
+++ Sharing results among all people via other messengers:
+  - Person name,
+	   - order position name,
+	   - order position  qty,
+	   - order position  price,
+	   - tips amount,
+	   - total price,
+	   - notification about the possibility of returning the person's sum (his\her part of the general bill sum)
+	     to those who generated QR in case of his\her no cash payment;
+	   - credential to pay (card number);
+	     This shared message also contains a link to return funds ( redirects to a provider via which payment is made (Privat24/Mono/Oshchad) );
+
+ 	   === Data security ===
+	* Protect sensitive data (card number), redirection links to web banking (avoid fishing);
+	
 	
